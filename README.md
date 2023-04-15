@@ -4,8 +4,8 @@ Bem-vindo ao projeto de criptografia de texto! Neste projeto, é possivel fazer 
 
 ### Exemplo
 ```
-"gato" => "gaitober"
-gaitober" => "gato"
+"Eevee" => "RWV2ZWU="
+"RWV2ZWU=" => "Eevee"
 ```
 
 ## Descrição
