@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/alura.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Challenge | Codificador</title>
+  </head>
+  <body>
+
+    <header>
+        <img src="img/alura.svg" alt="Logo do site: letra A de Alura" id="logo">
+    </header>
+
+    <!--entrada-->
+    <textarea id="input" name="input" placeholder="Digite seu texto"></textarea>
+    <section id="botoes">
+        <button class="botao" id="encode-btn">Criptografar</button>
+        <button class="botao" id="decode-btn">Descriptografar</button>
+    </section>
+    <!--saida-->
+    <section class="resultado">
+        <textarea class="saida" id="output" name="output" placeholder="Digite um texto que você deseja criptografar ou descriptografar." readonly></textarea>
+        <button class="copy" id="copy-btn">Copiar</button>
+    </section>
+    
+    <script>
+        const encodeBtn = document.getElementById("encode-btn");
+        const decodeBtn = document.getElementById("decode-btn");
+        const copyBtn = document.getElementById("copy-btn");
+        const input = document.getElementById("input");
+        const output = document.getElementById("output");
+
+        encodeBtn.addEventListener("click", function() {
+        const encodedText = base64Encode(input.value);
+        output.value = encodedText;
+        });
+
+        decodeBtn.addEventListener("click", function() {
+        const decodedText = base64Decode(input.value);
+        output.value = decodedText;
+        });
+
+        copyBtn.addEventListener("click", function() {
+        output.select();
+        document.execCommand("copy");
+        input.value = "";
+        output.value = "";
+        
+        });
+
+        function base64Encode(text) {
+            return btoa(text);
+        }
+
+        function base64Decode(encodedText) {
+            return atob(encodedText);
+        }
+    </script>
+</body>
+</html>
